@@ -1,0 +1,225 @@
+@page "/accountsettings"
+@using TaskManagerApp.Models
+@inject NavigationManager NavigationManager
+@inject TaskManagerApp.Services.AuthenticationService AuthenticationService
+@using Microsoft.AspNetCore.Components.Forms
+@using System.Threading.Tasks
+@using System.IO
+
+<Header></Header>
+<SideNav></SideNav>
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section profile">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        <img src="@profileImageSrc" alt="Profile" class="rounded-circle">
+                        <h2>@userProfile.FirstName @userProfile.LastName</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-body pt-3">
+                        
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content pt-2">
+                            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                <h5 class="card-title">Profile Details</h5>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Full Name</div>
+                                    <div class="col-lg-9 col-md-8">@userProfile.FirstName @userProfile.LastName</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Email</div>
+                                    <div class="col-lg-9 col-md-8">@userProfile.Email</div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                                <!-- Profile Edit Form -->
+                                <EditForm Model="userProfile" OnValidSubmit="HandleProfileUpdate">
+                                    <DataAnnotationsValidator />
+                                    <ValidationSummary />
+                                    <div class="row mb-3">
+                                        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <img src="@profileImageSrc" alt="Profile" class="img-thumbnail" />
+                                            <InputFile OnChange="HandleImageUpload" />
+                                            <button type="button" class="btn btn-primary mt-2" @onclick="UploadProfileImage">Upload Image</button>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="FirstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="FirstName" class="form-control" id="FirstName" @bind-Value="userProfile.FirstName" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="LastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="LastName" class="form-control" id="LastName" @bind-Value="userProfile.LastName" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="Email" type="email" class="form-control" id="Email" @bind-Value="userProfile.Email" />
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </EditForm><!-- End Profile Edit Form -->
+                            </div>
+
+                            <div class="tab-pane fade pt-3" id="profile-change-password">
+                                <!-- Change Password Form -->
+                                <EditForm Model="changePasswordModel" OnValidSubmit="HandleChangePassword">
+                                    <DataAnnotationsValidator />
+                                    <ValidationSummary />
+                                    <div class="row mb-3">
+                                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="CurrentPassword" type="@currentPasswordType" class="form-control" id="currentPassword" @bind-Value="changePasswordModel.CurrentPassword" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="NewPassword" type="@newPasswordType" class="form-control" id="newPassword" @bind-Value="changePasswordModel.NewPassword" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="confirmNewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <InputText name="ConfirmNewPassword" type="@confirmNewPasswordType" class="form-control" id="confirmNewPassword" @bind-Value="changePasswordModel.ConfirmNewPassword" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-8 col-lg-9 offset-md-4 offset-lg-3">
+                                            <InputCheckbox id="showPassword" @bind-Value="showPassword" /> <label for="showPassword">Show Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Change Password</button>
+                                    </div>
+                                    @if (passwordChangeMessage != null)
+                                    {
+                                        <div class="alert @passwordChangeMessageClass mt-2">
+                                            @passwordChangeMessage
+                                        </div>
+                                    }
+                                </EditForm><!-- End Change Password Form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<Footer></Footer>
+
+@code {
+    private UserProfile userProfile = new UserProfile();
+    private ChangePasswordModel changePasswordModel = new ChangePasswordModel();
+    private string profileImageSrc = string.Empty;
+    private IBrowserFile selectedFile;
+    private bool showPassword = false;
+    private string currentPasswordType => showPassword ? "text" : "password";
+    private string newPasswordType => showPassword ? "text" : "password";
+    private string confirmNewPasswordType => showPassword ? "text" : "password";
+    private string passwordChangeMessage;
+    private string passwordChangeMessageClass;
+
+    protected override async Task OnInitializedAsync()
+    {
+        userProfile = await AuthenticationService.GetUserProfileAsync();
+        var imageBase64 = await AuthenticationService.GetUserProfileImageAsync();
+        if (!string.IsNullOrEmpty(imageBase64))
+        {
+            profileImageSrc = $"data:image/jpeg;base64,{imageBase64}";
+        }
+    }
+
+    private async Task HandleProfileUpdate()
+    {
+        var response = await AuthenticationService.UpdateUserProfileAsync(userProfile);
+
+        if (response.IsSuccessStatusCode)
+        {
+           
+        }
+        else
+        {
+           
+        }
+    }
+
+   private async Task HandleChangePassword()
+{
+    if (changePasswordModel.NewPassword != changePasswordModel.ConfirmNewPassword)
+    {
+        passwordChangeMessage = "Passwords do not match.";
+        passwordChangeMessageClass = "alert-danger";
+        return;
+    }
+
+    var result = await AuthenticationService.ChangePasswordAsync(changePasswordModel);
+
+    if (result)
+    {
+        passwordChangeMessage = "Password updated successfully.";
+        passwordChangeMessageClass = "alert-success";
+    }
+    else
+    {
+        passwordChangeMessage = "Failed to update password.";
+        passwordChangeMessageClass = "alert-danger";
+    }
+}
+
+    private async Task HandleImageUpload(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+    }
+
+    private async Task UploadProfileImage()
+    {
+        if (selectedFile != null)
+        {
+            using var stream = selectedFile.OpenReadStream();
+            var imageUrl = await AuthenticationService.UploadProfileImageAsync(stream, selectedFile.Name);
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                profileImageSrc = imageUrl;
+            }
+        }
+    }
+}

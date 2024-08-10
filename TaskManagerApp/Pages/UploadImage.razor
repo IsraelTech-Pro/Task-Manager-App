@@ -1,0 +1,102 @@
+@page "/upload-image/{TaskId}"
+@using TaskManagerApp.Services
+@using Microsoft.AspNetCore.Components.Forms
+@using System.Threading.Tasks
+@using TaskManagerApp.Models
+@inject TaskService TaskService
+@inject NavigationManager NavigationManager
+
+
+<Header></Header>
+<SideNav></SideNav>
+<main>
+    <div class="container">
+        <section class="section upload-image min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 d-flex flex-column align-items-center justify-content-center">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                @if (!string.IsNullOrEmpty(statusMessage))
+                                {
+                                    <div class="alert @alertClass" role="alert">
+                                        @statusMessage
+                                    </div>
+                                }
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Upload Image</h5>
+                                    <p class="text-center small">Upload an image for your task below</p>
+                                </div>
+                                <EditForm Model="@imageUploadModel" OnValidSubmit="@HandleUploadImage">
+                                    <DataAnnotationsValidator />
+                                    <ValidationSummary />
+                                    <div class="col-12">
+                                        <label for="imageUpload" class="form-label">Upload Image</label>
+                                        <InputFile id="imageUpload" OnChange="HandleImageUpload" />
+                                    </div>
+                                    <div class="col-12 mb-3 mt-3">
+                                        <button class="btn btn-primary w-100" type="submit">Save Image</button>
+                                    </div>
+                                    <div class="col-12 mb-3 mt-3">
+                                    <button class="btn btn-primary w-100" @onclick="NavigateToCreateTask">Skip</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<Footer></Footer>
+<Links></Links>
+@code {
+    [Parameter]
+    public string TaskId { get; set; }
+
+    private IBrowserFile uploadedImage;
+    private string statusMessage;
+    private string alertClass = "";
+    private ImageUploadModel imageUploadModel = new ImageUploadModel();
+
+    private async Task HandleUploadImage()
+    {
+        try
+        {
+            if (uploadedImage != null)
+            {
+                var uploadResult = await TaskService.UploadTaskImageAsync(TaskId, uploadedImage);
+
+                
+                imageUploadModel = uploadResult;
+
+                statusMessage = "Image uploaded successfully!";
+                alertClass = "alert-success";
+            }
+            else
+            {
+                statusMessage = "No image selected.";
+                alertClass = "alert-warning";
+            }
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error uploading image: {ex.Message}";
+            alertClass = "alert-danger";
+        }
+    }
+
+    private void HandleImageUpload(InputFileChangeEventArgs e)
+    {
+        if (e.FileCount > 0)
+        {
+            uploadedImage = e.File;
+        }
+    }
+    private void NavigateToCreateTask()
+    {
+  
+        NavigationManager.NavigateTo("/home");
+    }
+}

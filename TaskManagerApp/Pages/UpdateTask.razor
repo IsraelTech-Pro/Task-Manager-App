@@ -1,0 +1,152 @@
+@page "/updatetask/{taskId}"
+@using TaskManagerApp.Models
+@using TaskManagerApp.Services
+@inject TaskService TaskService
+@inject NavigationManager NavigationManager
+
+<Header></Header>
+<SideNav></SideNav>
+<main>
+    <div class="container">
+        <section class="section update-task min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 d-flex flex-column align-items-center justify-content-center">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                @if (!string.IsNullOrEmpty(statusMessage))
+                                {
+                                    <div class="alert @alertClass" role="alert">
+                                        @statusMessage
+                                    </div>
+                                }
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Update Task</h5>
+                                    <p class="text-center small">Update the details of your task below</p>
+                                </div>
+                                <EditForm Model="@taskUpdateModel" OnValidSubmit="@HandleUpdateTask">
+                                    <DataAnnotationsValidator />
+                                    <ValidationSummary />
+                                    <div class="row g-3 needs-validation">
+                                        <div class="col-12">
+                                            <label for="title" class="form-label">Task Title</label>
+                                            <InputText type="text" class="form-control" id="title" @bind-Value="taskUpdateModel.Title" required />
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="description" class="form-label">Description</label>
+                                            <InputTextArea class="form-control" id="description" @bind-Value="taskUpdateModel.Description" rows="4" required />
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="dueDate" class="form-label">Due Date</label>
+                                            <InputDate class="form-control" id="dueDate" @bind-Value="taskUpdateModel.DueDate" required />
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="dueTime" class="form-label">Due Time</label>
+                                            <InputText type="text" class="form-control" id="dueTime" @bind-Value="formattedDueTime" required />
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="status" class="form-label">Status</label>
+                                            <InputSelect class="form-control" id="status" @bind-Value="taskUpdateModel.Status" required>
+                                                <option value="">Select Status</option>
+                                                <option value="Not Started">Not Started</option>
+                                                <option value="In Progress">In Progress</option>
+                                                <option value="Completed">Completed</option>
+                                            </InputSelect>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="priority" class="form-label">Priority</label>
+                                            <InputSelect class="form-control" id="priority" @bind-Value="taskUpdateModel.Priority" required>
+                                                <option value="">Select Priority</option>
+                                                <option value="Low">Low</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="High">High</option>
+                                            </InputSelect>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Update Task</button>
+                                        </div>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<Footer></Footer>
+<Links></Links>
+
+@code {
+    [Parameter]
+    public string TaskId { get; set; }
+
+    private TaskUpdateModel taskUpdateModel = new TaskUpdateModel();
+    private string statusMessage;
+    private string alertClass = "";
+
+    private DateTime formattedDueDate
+    {
+        get => taskUpdateModel.DueDate;
+        set => taskUpdateModel.DueDate = value;
+    }
+    protected override void OnInitialized()
+    {
+    
+        formattedDueDate = new DateTime(DateTime.Now.Year, 1, 1);
+    }
+
+    private string formattedDueTime
+    {
+        get => taskUpdateModel.DueTime.ToString(@"hh\:mm\:ss");
+        set
+        {
+            if (TimeSpan.TryParse(value, out var timeSpan))
+            {
+                taskUpdateModel.DueTime = timeSpan;
+            }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var task = await TaskService.GetTaskByIdAsync(TaskId);
+            taskUpdateModel = new TaskUpdateModel
+            {
+                TaskId = task.TaskId,
+                Title = task.Title,
+                Description = task.Description,
+                DueDate = task.DueDate,
+                DueTime = task.DueTime,
+                Status = task.Status,
+                Priority = task.Priority
+            };
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error loading task: {ex.Message}";
+            alertClass = "alert-danger";
+        }
+    }
+
+    private async Task HandleUpdateTask()
+    {
+        try
+        {
+            await TaskService.UpdateTaskAsync(TaskId, taskUpdateModel);
+            statusMessage = "Task updated successfully.";
+            alertClass = "alert-success";
+            NavigationManager.NavigateTo($"/upload-image/{TaskId}");
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error updating task: {ex.Message}";
+            alertClass = "alert-danger";
+        }
+    }
+
+    
+}

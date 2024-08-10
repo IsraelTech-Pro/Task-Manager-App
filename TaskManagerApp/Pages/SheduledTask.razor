@@ -1,0 +1,204 @@
+@page "/NotStartedtask"
+@using TaskManagerApp.Models
+@using TaskManagerApp.Services
+@inject TaskService TaskService
+@inject NavigationManager Navigation
+
+<Links></Links>
+<Header></Header>
+<SideNav></SideNav>
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Not Started Tasks</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Not Started Tasks</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+            <!-- Task Table -->
+            <div class="col-12">
+                <div class="card">
+                    <table class="table text-white mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">Task</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (tasks == null || !tasks.Any())
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center">Loading or No tasks available</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @foreach (var task in tasks)
+                                {
+                                    <tr class="fw-normal">
+                                        <th>
+                                            <img src="@task.ImageUpload" alt="avatar" style="width: 45px; height: auto;" class="rounded-circle">
+                                            <span class="ms-2">@task.Title</span>
+                                        </th>
+
+                                        <td class="align-middle">
+                                            <h6 class="mb-0">
+                                                <span class="badge @(GetStatusBadgeClass(task.Status))">@task.Status</span>
+                                            </h6>
+                                        </td>
+
+                                        <td class="align-middle">@task.DueDate.ToShortDateString()</td>
+                                        <td class="align-middle">
+                                            <h6 class="mb-0">
+                                                <span class="badge @(GetPriorityBadgeClass(task.Priority))">@task.Priority</span>
+                                            </h6>
+                                        </td>
+                                        <td class="align-middle">
+                                            <!-- Mark as Completed -->
+                                            @if (task.Status != "Completed")
+                                            {
+                                                <a @onclick="() => MarkTaskAsCompleted(task)" style="color: green;" title="Done">
+                                                    <i class="bx bx-check bx-md"></i>
+                                                </a>
+                                            }
+
+                                            <!-- Edit Task -->
+                                            <a @onclick="() => EditTask(task.TaskId)" style="color: black;" title="Edit">
+                                                <i class="bx bx-edit bx-md"></i>
+                                            </a>
+
+                                            <!-- Delete Task -->
+                                            <a @onclick="() => DeleteTask(task.TaskId)" style="color: red;" title="Delete">
+                                                <i class="bx bx-trash bx-md"></i>
+                                            </a>
+
+                                            <!-- Show Details -->
+                                            <a @onclick="() => ShowTaskDetails(task)" data-bs-toggle="modal" data-bs-target="#smallModal" style="color: blue;" title="Details">
+                                                <i class="bx bxs-message-square-detail bx-md"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- End Task Table -->
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center" @onclick="ScrollToTop">
+    <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="smallModal" tabindex="-1" aria-labelledby="smallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg"> <!-- Adjust modal size as needed -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="smallModalLabel">Task Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-wrap">
+                    @taskDescription
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .text-wrap {
+        word-wrap: break-word; /* Ensures long words break and wrap to the next line */
+        overflow-wrap: break-word; /* Ensures proper wrapping of long text */
+    }
+</style>
+
+@code {
+    private List<TaskModel> tasks;
+    private string taskDescription;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var allTasks = await TaskService.GetAllUserTasksAsync();
+      
+        tasks = allTasks.Where(t => t.Status == "Not Started").ToList();
+    }
+
+    private async Task MarkTaskAsCompleted(TaskModel task)
+    {
+        
+        task.Status = "Completed";
+
+       
+        await TaskService.UpdateTaskStatusAsync(task.TaskId, task.Status);
+
+     
+        var updatedTasks = await TaskService.GetAllUserTasksAsync();
+        tasks = updatedTasks.Where(t => t.Status == "Not Started").ToList();
+    }
+
+    private async Task DeleteTask(string taskId)
+    {
+     
+        var taskToRemove = tasks.FirstOrDefault(t => t.TaskId == taskId);
+        if (taskToRemove != null)
+        {
+            tasks.Remove(taskToRemove);
+
+         
+            await TaskService.DeleteTaskAsync(taskId);
+        }
+    }
+
+    private void ShowTaskDetails(TaskModel task)
+    {
+        taskDescription = task.Description;
+    }
+
+    private void EditTask(string taskId)
+    {
+        Navigation.NavigateTo($"/updatetask/{taskId}");
+    }
+
+    private void ScrollToTop()
+    {
+       
+    }
+
+    private string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "In Progress" => "bg-warning",
+            "Not Started" => "bg-danger",
+            "Completed" => "bg-primary",
+            _ => "bg-secondary" 
+        };
+    }
+
+    private string GetPriorityBadgeClass(string priority)
+    {
+        return priority switch
+        {
+            "High" => "bg-danger",
+            "Medium" => "bg-warning",
+            "Low" => "bg-primary",
+            _ => "bg-secondary" 
+        };
+    }
+}

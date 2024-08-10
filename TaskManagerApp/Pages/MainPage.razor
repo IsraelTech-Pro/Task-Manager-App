@@ -1,0 +1,284 @@
+@page "/mainpage"
+@using TaskManagerApp.Models
+@using TaskManagerApp.Services
+@inject TaskService TaskService
+@inject NavigationManager Navigation
+
+<main id="main" class="main">
+
+
+    <section class="section dashboard">
+        <div class="row">
+
+   
+            <div class="col-lg-12">
+                <div class="row">
+
+                    <!-- Task Card - In Progress -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: white;">
+                                    <span class="badge bg-warning" style="color: white;">Task | In Progress</span>
+                                </h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-calendar3"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>@inProgressCount</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End task Card -->
+
+                    <!-- Task Card - Not Started -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: white;">
+                                    <span class="badge bg-danger" style="color: white;">Task | Not Started</span>
+                                </h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-calendar2"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>@notStartedCount</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End task Card -->
+
+                    <!-- Task Card - Completed -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: white;">
+                                    <span class="badge bg-primary" style="color: white;">Task | Completed</span>
+                                </h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>@completedCount</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End task Card -->
+
+                    <!-- All User Tasks -->
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <table class="table text-white mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Deadline</th>
+                                        <th scope="col">Priority</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var task in tasks)
+                                    {
+                                        <tr class="fw-normal">
+                                            <th>
+                                                <img src="@task.ImageUpload" alt="avatar" style="width: 45px; height: auto;" class="rounded-circle">
+                                                <span class="ms-2">@task.Title</span>
+                                            </th>
+
+                                            <td class="align-middle">
+                                                <h6 class="mb-0">
+                                                    <span class="badge @(GetStatusBadgeClass(task.Status))">@task.Status</span>
+                                                </h6>
+                                            </td>
+
+                                            <td class="align-middle">@task.DueDate.ToShortDateString()</td>
+                                            <td class="align-middle">
+                                                <h6 class="mb-0">
+                                                    <span class="badge @(GetPriorityBadgeClass(task.Priority))">@task.Priority</span>
+                                                </h6>
+                                            </td>
+                                            <td class="align-middle">
+                                                <!-- Mark as Completed -->
+                                                @if (task.Status != "Completed")
+                                                {
+                                                    <a @onclick="() => MarkTaskAsCompleted(task)" style="color: green;" data-mdb-tooltip-init title="done">
+                                                        <i class="bx bx-check bx-md"></i>
+                                                    </a>
+                                                }
+
+                                                <!-- Edit Task -->
+                                                <a @onclick="() => EditTask(task.TaskId)" style="color: black;" data-mdb-tooltip-init title="Edit">
+                                                    <i class="bx bx-edit bx-md"></i>
+                                                </a>
+
+                                                <!-- Delete Task -->
+                                                <a @onclick="() => DeleteTask(task.TaskId)" style="color: red;" data-mdb-tooltip-init title="Delete">
+                                                    <i class="bx bx-trash bx-md"></i>
+                                                </a>
+
+                                                <!-- Show Details -->
+                                                <a @onclick="() => ShowTaskDetails(task)" data-bs-toggle="modal" data-bs-target="#smallModal" style="color: blue;" data-mdb-tooltip-init title="Details">
+                                                    <i class="bx bxs-message-square-detail bx-md"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div><!-- End All User Tasks -->
+
+                </div>
+            </div><!-- End Left side columns -->
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center" @onclick="ScrollToTop">
+    <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="smallModal" tabindex="-1" aria-labelledby="smallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg"> <!-- Adjust modal size as needed -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="smallModalLabel">Task Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-wrap">
+                    @taskDescription
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .text-wrap {
+        word-wrap: break-word; /* Ensures long words break and wrap to the next line */
+        overflow-wrap: break-word; /* Ensures proper wrapping of long text */
+    }
+</style>
+
+
+@code {
+    private List<TaskModel> tasks = new List<TaskModel>();
+    private string taskDescription;
+
+   
+    private int inProgressCount;
+    private int notStartedCount;
+    private int completedCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tasks = await TaskService.GetAllUserTasksAsync();
+
+       
+        inProgressCount = tasks.Count(t => t.Status == "In Progress");
+        notStartedCount = tasks.Count(t => t.Status == "Not Started");
+        completedCount = tasks.Count(t => t.Status == "Completed");
+    }
+
+    private async Task MarkTaskAsCompleted(TaskModel task)
+    {
+       
+        task.Status = "Completed";
+
+        
+        await TaskService.UpdateTaskStatusAsync(task.TaskId, task.Status);
+
+        
+        tasks = await TaskService.GetAllUserTasksAsync();
+
+      
+        inProgressCount = tasks.Count(t => t.Status == "In Progress");
+        notStartedCount = tasks.Count(t => t.Status == "Not Started");
+        completedCount = tasks.Count(t => t.Status == "Completed");
+    }
+
+    private async Task DeleteTask(string taskId)
+    {
+     
+        var taskToRemove = tasks.FirstOrDefault(t => t.TaskId == taskId);
+        if (taskToRemove != null)
+        {
+            tasks.Remove(taskToRemove);
+
+            
+            await TaskService.DeleteTaskAsync(taskId);
+
+          
+            inProgressCount = tasks.Count(t => t.Status == "In Progress");
+            notStartedCount = tasks.Count(t => t.Status == "Not Started");
+            completedCount = tasks.Count(t => t.Status == "Completed");
+        }
+    }
+
+    private void ShowTaskDetails(TaskModel task)
+    {
+        taskDescription = task.Description;
+    }
+
+    private void EditTask(string taskId)
+    {
+        Navigation.NavigateTo($"/updatetask/{taskId}");
+    }
+
+    private void ScrollToTop()
+    {
+        
+    }
+
+    private string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "In Progress" => "bg-warning",
+            "Not Started" => "bg-danger",
+            "Completed" => "bg-primary",
+            _ => "bg-secondary" 
+        };
+    }
+
+    private string GetPriorityBadgeClass(string priority)
+    {
+        return priority switch
+        {
+            "High" => "bg-danger",
+            "Medium" => "bg-warning",
+            "Low" => "bg-primary",
+            _ => "bg-secondary"
+        };
+    }
+}
