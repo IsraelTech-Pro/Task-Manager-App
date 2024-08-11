@@ -1,22 +1,21 @@
-
 set -o errexit
 
 
-wget https://download.visualstudio.microsoft.com/download/pr/xxxxxx/dotnet-sdk-8.0.x-linux-x64.tar.gz
+wget https://download.visualstudio.microsoft.com/download/pr/60218cc4-13eb-41d5-aa0b-5fd5a3fb03b8/6c42bee7c3651b1317b709a27a741362/dotnet-sdk-8.0.303-linux-x64.tar.gz
 
 
-mkdir -p $XDG_CACHE_HOME/dotnet && tar zxf dotnet-sdk-8.0.x-linux-x64.tar.gz -C $XDG_CACHE_HOME/dotnet
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.303-linux-x64.tar.gz -C $HOME/dotnet
 
 
-export DOTNET_ROOT=$XDG_CACHE_HOME/dotnet
-export PATH=$PATH:$XDG_CACHE_HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+
 
 dotnet --version
 
-
+y
 cd TaskManagerApp
 
 dotnet publish -c Release -o out
-
 
 cp -r out/* /var/www/html
