@@ -17,4 +17,3 @@ cd TaskManagerApp
 
 dotnet publish -c Release -o out
 
-cp -r out/* /var/www/html
