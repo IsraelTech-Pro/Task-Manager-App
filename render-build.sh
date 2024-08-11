@@ -13,7 +13,6 @@ export PATH=$PATH:$HOME/dotnet
 
 dotnet --version
 
-y
 cd TaskManagerApp
 
 dotnet publish -c Release -o out
