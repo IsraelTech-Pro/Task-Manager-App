@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxv4TFxLkXg=",
+  "dgSpecHash": "emUx0J6tt/Q=",
   "success": true,
-  "projectFilePath": "E:\\blzore\\TaskManagerApp\\TaskManagerApp.csproj",
+  "projectFilePath": "E:\\TaskMenager App\\TaskManagerApp\\TaskManagerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ISRAEL\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
     "C:\\Users\\ISRAEL\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.7\\microsoft.aspnetcore.authorization.8.0.7.nupkg.sha512",

@@ -2162,11 +2162,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\blzore\\TaskManagerApp\\TaskManagerApp.csproj",
+      "projectUniqueName": "E:\\TaskMenager App\\TaskManagerApp\\TaskManagerApp.csproj",
       "projectName": "TaskManagerApp",
-      "projectPath": "E:\\blzore\\TaskManagerApp\\TaskManagerApp.csproj",
+      "projectPath": "E:\\TaskMenager App\\TaskManagerApp\\TaskManagerApp.csproj",
       "packagesPath": "C:\\Users\\ISRAEL\\.nuget\\packages\\",
-      "outputPath": "E:\\blzore\\TaskManagerApp\\obj\\",
+      "outputPath": "E:\\TaskMenager App\\TaskManagerApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ISRAEL\\AppData\\Roaming\\NuGet\\NuGet.Config",

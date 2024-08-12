@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pV1kCZ4PpnGG8QDouEJJPpde4mx5xtO+AxWnIfMNwlg=",
+  "Hash": "5OicUxcdAPsmvkTg8/nr3Z7BOAxnHqBuOokM95zXS4w=",
   "Source": "TaskManagementAPI",
   "BasePath": "_content/TaskManagementAPI",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "TaskManagementAPI\\wwwroot",
       "Source": "TaskManagementAPI",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "Pattern": "**"
     }
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "C:\\Users\\ISRAEL\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.0\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\images\\faa6c52d67d20f1fe1ac5a93a8edd62b.png",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\images\\faa6c52d67d20f1fe1ac5a93a8edd62b.png",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "images/faa6c52d67d20f1fe1ac5a93a8edd62b.png",
       "AssetKind": "All",
@@ -1176,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\images\\faa6c52d67d20f1fe1ac5a93a8edd62b.png"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\images\\venom-dark-chromebook-wallpaper.jpg",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\images\\venom-dark-chromebook-wallpaper.jpg",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "images/venom-dark-chromebook-wallpaper.jpg",
       "AssetKind": "All",
@@ -1195,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\images\\venom-dark-chromebook-wallpaper.jpg"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\img\\1482592-4k-wallpaper-nature-1920x1080-for-1080p.jpg",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\img\\1482592-4k-wallpaper-nature-1920x1080-for-1080p.jpg",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "img/1482592-4k-wallpaper-nature-1920x1080-for-1080p.jpg",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\img\\1482592-4k-wallpaper-nature-1920x1080-for-1080p.jpg"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\img\\a82c4b062593c35f4ebcf1617e83cacd.jpg",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\img\\a82c4b062593c35f4ebcf1617e83cacd.jpg",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "img/a82c4b062593c35f4ebcf1617e83cacd.jpg",
       "AssetKind": "All",
@@ -1233,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\img\\a82c4b062593c35f4ebcf1617e83cacd.jpg"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\img\\faa6c52d67d20f1fe1ac5a93a8edd62b.png",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\img\\faa6c52d67d20f1fe1ac5a93a8edd62b.png",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "img/faa6c52d67d20f1fe1ac5a93a8edd62b.png",
       "AssetKind": "All",
@@ -1252,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\img\\faa6c52d67d20f1fe1ac5a93a8edd62b.png"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\img\\profile.png",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\img\\profile.png",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "img/profile.png",
       "AssetKind": "All",
@@ -1271,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\img\\profile.png"
     },
     {
-      "Identity": "E:\\blzore\\TaskManagementAPI\\wwwroot\\img\\venom-dark-chromebook-wallpaper.jpg",
+      "Identity": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\img\\venom-dark-chromebook-wallpaper.jpg",
       "SourceId": "TaskManagementAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\blzore\\TaskManagementAPI\\wwwroot\\",
+      "ContentRoot": "E:\\TaskMenager App\\TaskManagementAPI\\wwwroot\\",
       "BasePath": "_content/TaskManagementAPI",
       "RelativePath": "img/venom-dark-chromebook-wallpaper.jpg",
       "AssetKind": "All",

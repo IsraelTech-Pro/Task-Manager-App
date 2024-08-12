@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TP1pR1WbkUA=",
+  "dgSpecHash": "kYWsJFUVvhQ=",
   "success": true,
-  "projectFilePath": "E:\\blzore\\TaskManagementAPI\\TaskManagementAPI.csproj",
+  "projectFilePath": "E:\\TaskMenager App\\TaskManagementAPI\\TaskManagementAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ISRAEL\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ISRAEL\\.nuget\\packages\\identitymodel\\6.1.0\\identitymodel.6.1.0.nupkg.sha512",

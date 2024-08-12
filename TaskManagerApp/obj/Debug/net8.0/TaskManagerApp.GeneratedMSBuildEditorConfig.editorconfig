@@ -13,95 +13,95 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = TaskManagerApp
 build_property.RootNamespace = TaskManagerApp
-build_property.ProjectDir = E:\blzore\TaskManagerApp\
+build_property.ProjectDir = E:\TaskMenager App\TaskManagerApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\blzore\TaskManagerApp
+build_property.MSBuildProjectDirectory = E:\TaskMenager App\TaskManagerApp
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/blzore/TaskManagerApp/App.razor]
+[E:/TaskMenager App/TaskManagerApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/AccountSettings.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/AccountSettings.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFNldHRpbmdzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Completedtask.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Completedtask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGxldGVkdGFzay5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Counter.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/CreateTask.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/CreateTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlVGFzay5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Footer.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9vdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Header.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Header.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhZGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Home.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Inprogresstask.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Inprogresstask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5wcm9ncmVzc3Rhc2sucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Links.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Links.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlua3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Login.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/MainPage.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/MainPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpblBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/SheduledTask.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/SheduledTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hlZHVsZWRUYXNrLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/SideNav.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/SideNav.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lkZU5hdi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/Signup.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/Signup.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/UpdateTask.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/UpdateTask.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlVGFzay5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Pages/UploadImage.razor]
+[E:/TaskMenager App/TaskManagerApp/Pages/UploadImage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBsb2FkSW1hZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/_Imports.razor]
+[E:/TaskMenager App/TaskManagerApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/blzore/TaskManagerApp/Layout/LoginLayout.razor]
+[E:/TaskMenager App/TaskManagerApp/Layout/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-iblbzz0xpd
 
-[E:/blzore/TaskManagerApp/Layout/MainLayout.razor]
+[E:/TaskMenager App/TaskManagerApp/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-r23aq8ysff
 
-[E:/blzore/TaskManagerApp/Layout/NavMenu.razor]
+[E:/TaskMenager App/TaskManagerApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-3ke0unxc2w

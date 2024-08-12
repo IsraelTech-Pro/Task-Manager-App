@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\blzore\\TaskManagementAPI\\TaskManagementAPI.csproj": {}
+    "E:\\TaskMenager App\\TaskManagementAPI\\TaskManagementAPI.csproj": {}
   },
   "projects": {
-    "E:\\blzore\\TaskManagementAPI\\TaskManagementAPI.csproj": {
+    "E:\\TaskMenager App\\TaskManagementAPI\\TaskManagementAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\blzore\\TaskManagementAPI\\TaskManagementAPI.csproj",
+        "projectUniqueName": "E:\\TaskMenager App\\TaskManagementAPI\\TaskManagementAPI.csproj",
         "projectName": "TaskManagementAPI",
-        "projectPath": "E:\\blzore\\TaskManagementAPI\\TaskManagementAPI.csproj",
+        "projectPath": "E:\\TaskMenager App\\TaskManagementAPI\\TaskManagementAPI.csproj",
         "packagesPath": "C:\\Users\\ISRAEL\\.nuget\\packages\\",
-        "outputPath": "E:\\blzore\\TaskManagementAPI\\obj\\",
+        "outputPath": "E:\\TaskMenager App\\TaskManagementAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ISRAEL\\AppData\\Roaming\\NuGet\\NuGet.Config",
