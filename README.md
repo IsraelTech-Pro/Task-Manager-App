@@ -8,33 +8,41 @@ TaskManagerApp is a web-based task management application developed using **Blaz
 
 - **User Authentication**:
   - **Signup Page**: Register a new account.
-    ![Signup Page](images/signup-page.png)
+    ![Signup Page](taskimg/signup.png)
   - **Login Page**: Securely log in to your account.
-    ![Login Page](images/login-page.png)
+    ![Login Page](taskimg/login.png)
 
 - **Task Management**:
   - **Create Tasks**: Add new tasks with a task avatar image, name, date, status, and priority.
-    ![Create Task](images/create-task.png)
+    ![Create Task](taskimg/createtask.png)
   - **Edit Tasks**: Modify existing task details.
-    ![Edit Task](images/edit-task.png)
+    ![Edit Task](taskimg/update.png)
+    ![Edit Task](taskimg/uploadimg.png)
   - **Mark as Completed**: Change the task status to "Completed."
-    ![Mark as Completed](images/mark-as-completed.png)
+    ![Mark as Completed](taskimg/markascompleted.png)
   - **View Description**: Access detailed information about each task.
-    ![View Task Description](images/view-task-description.png)
+    ![View Task Description](taskimg/taskdetails.png)
   - **Delete Tasks**: Remove tasks that are no longer needed.
-    ![Delete Task](images/delete-task.png)
+    ![Delete Task](taskimg/delete.png)
 
 - **Task Overview**:
   - **Task Count Section**: View the count of tasks categorized by their status:
     - Not Started
     - In Progress
     - Completed
-    ![Task Count Section](images/task-count-section.png)
+    ![Task Count Section](taskimg/taskcount.png)
   - **Task Status Views**: Filter tasks based on their status (Not Started, In Progress, Completed).
-    ![Task Status Views](images/task-status-views.png)
+    ![Task Status Views](taskimg/Not start.png)
+    ![Task Status Views](taskimg/inprogress.png)
+    ![Task Status Views](taskimg/completed.png)
 
 - **Profile Settings**: Update personal information including First Name, Last Name, Email, and Profile Picture.
-  ![Profile Settings](images/profile-settings.png)
+  ![Profile Settings](![Task Status Views](taskimg/profilesetting.png))
+  ![Profile Settings](![Task Status Views](taskimg/profile1.png))
+  ![Profile Settings](![Task Status Views](taskimg/profile2.png))
+  ![Profile Settings](![Task Status Views](taskimg/profile3.png))
+
+  
 
 ## Technology Stack
 
