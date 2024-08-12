@@ -65,5 +65,13 @@ TaskManagerApp is a web-based task management application developed using **Blaz
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/TaskManagerApp.git
+   git clone https://github.com/IsraelTech-Pro/Task-Manager-App.git
    cd TaskManagerApp
+   dotnet build
+   dotnet run
+   
+   cd TaskManagementAPI
+   cd TaskManagerApp
+   dotnet build
+   dotnet run
+
