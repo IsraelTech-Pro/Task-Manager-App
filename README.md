@@ -16,7 +16,7 @@ TaskManagerApp is a web-based task management application developed using **Blaz
   - **Create Tasks**: Add new tasks with a task avatar image, name, date, status, and priority.
     ![Create Task](taskimg/createtask.png)
   - **Edit Tasks**: Modify existing task details.
-    ![Edit Task](taskimg/update .png)
+    ![Edit Task](taskimg/update.png)
     ![Edit Task](taskimg/uploadimg.png)
   - **Mark as Completed**: Change the task status to "Completed."
     ![Mark as Completed](taskimg/markascompleted.png)
@@ -32,7 +32,7 @@ TaskManagerApp is a web-based task management application developed using **Blaz
     - Completed
     ![Task Count Section](taskimg/taskcount.png)
   - **Task Status Views**: Filter tasks based on their status (Not Started, In Progress, Completed).
-    ![Task Status Views](taskimg/Not start.png)
+    ![Task Status Views](taskimg/notstart.png)
     ![Task Status Views](taskimg/inprogress.png)
     ![Task Status Views](taskimg/completed.png)
 
