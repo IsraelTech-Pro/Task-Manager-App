@@ -57,7 +57,7 @@ TaskManagerApp is a web-based task management application developed using **Blaz
 - [.NET SDK](https://dotnet.microsoft.com/download) (for building and running the ASP.NET API)
 - [MySQL Server](https://dev.mysql.com/downloads/mysql/) (for the database)
 - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (optional, for database management)
-- [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) (for development)
+- [Visual Studio Code](https://code.visualstudio.com/) (for development)
 - A modern web browser (Chrome, Firefox, Edge, etc.)
 
 ### Installation
