@@ -6,43 +6,46 @@ TaskManagerApp is a web-based task management application developed using **Blaz
 
 ## Features
 
-- **User Authentication**:
-  - **Signup Page**: Register a new account.
-    ![Signup Page](taskimg/signup.png)
-  - **Login Page**: Securely log in to your account.
-    ![Login Page](taskimg/login.png)
+### User Authentication
 
-- **Task Management**:
-  - **Create Tasks**: Add new tasks with a task avatar image, name, date, status, and priority.
-    ![Create Task](taskimg/createtask.png)
-  - **Edit Tasks**: Modify existing task details.
-    ![Edit Task](taskimg/update.png)
-    ![Edit Task](taskimg/uploadimg.png)
-  - **Mark as Completed**: Change the task status to "Completed."
-    ![Mark as Completed](taskimg/markascompleted.png)
-  - **View Description**: Access detailed information about each task.
-    ![View Task Description](taskimg/taskdetails.png)
-  - **Delete Tasks**: Remove tasks that are no longer needed.
-    ![Delete Task](taskimg/delete.png)
+- **Signup Page**: Register a new account.
+  ![Signup Page](taskimg/signup.png)
+- **Login Page**: Securely log in to your account.
+  ![Login Page](taskimg/login.png)
 
-- **Task Overview**:
-  - **Task Count Section**: View the count of tasks categorized by their status:
-    - Not Started
-    - In Progress
-    - Completed
-    ![Task Count Section](taskimg/taskcount.png)
-  - **Task Status Views**: Filter tasks based on their status (Not Started, In Progress, Completed).
-    ![Task Status Views](taskimg/notstart.png)
-    ![Task Status Views](taskimg/inprogress.png)
-    ![Task Status Views](taskimg/completed.png)
+### Task Management
 
-- **Profile Settings**: Update personal information including First Name, Last Name, Email, and Profile Picture.
-  ![Profile Settings](![Task Status Views](taskimg/profilesetting.png))
-  ![Profile Settings](![Task Status Views](taskimg/profile1.png))
-  ![Profile Settings](![Task Status Views](taskimg/profile2.png))
-  ![Profile Settings](![Task Status Views](taskimg/profile3.png))
+- **Create Tasks**: Add new tasks with a task avatar image, name, date, status, and priority.
+  ![Create Task](taskimg/createtask.png)
+- **Edit Tasks**: Modify existing task details.
+  ![Edit Task](taskimg/update.png)
+  ![Edit Task](taskimg/uploadimg.png)
+- **Mark as Completed**: Change the task status to "Completed."
+  ![Mark as Completed](taskimg/markascompleted.png)
+- **View Description**: Access detailed information about each task.
+  ![View Task Description](taskimg/taskdetails.png)
+- **Delete Tasks**: Remove tasks that are no longer needed.
+  ![Delete Task](taskimg/delete.png)
 
-  
+### Task Overview
+
+- **Task Count Section**: View the count of tasks categorized by their status:
+  - Not Started
+  - In Progress
+  - Completed
+  ![Task Count Section](taskimg/taskcount.png)
+- **Task Status Views**: Filter tasks based on their status (Not Started, In Progress, Completed).
+  ![Task Status Views - Not Started](taskimg/notstart.png)
+  ![Task Status Views - In Progress](taskimg/inprogress.png)
+  ![Task Status Views - Completed](taskimg/completed.png)
+
+### Profile Settings
+
+- Update personal information including First Name, Last Name, Email, and Profile Picture.
+  ![Profile Settings](taskimg/profilesetting.png)
+  ![Profile Settings](taskimg/profile1.png)
+  ![Profile Settings](taskimg/profile2.png)
+  ![Profile Settings](taskimg/profile3.png)
 
 ## Technology Stack
 
@@ -66,12 +69,4 @@ TaskManagerApp is a web-based task management application developed using **Blaz
 
    ```bash
    git clone https://github.com/IsraelTech-Pro/Task-Manager-App.git
-   cd TaskManagerApp
-   dotnet build
-   dotnet run
-   
-   cd TaskManagementAPI
-   cd TaskManagerApp
-   dotnet build
-   dotnet run
-
+   cd Task-Manager-App
